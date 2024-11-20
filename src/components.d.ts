@@ -6,56 +6,73 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface SgContent {
+        "dataUrl": string;
+        "info": boolean;
+        "ordering": boolean;
+        "paging": boolean;
+        "print": boolean;
+        "searching": boolean;
+        "theme": string;
+    }
+    interface SgTable {
+        "dataUrl": string;
+        "info": boolean;
+        "ordering": boolean;
+        "paging": boolean;
+        "print": boolean;
+        "searching": boolean;
+        "theme": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLSgContentElement extends Components.SgContent, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLSgContentElement: {
+        prototype: HTMLSgContentElement;
+        new (): HTMLSgContentElement;
+    };
+    interface HTMLSgTableElement extends Components.SgTable, HTMLStencilElement {
+    }
+    var HTMLSgTableElement: {
+        prototype: HTMLSgTableElement;
+        new (): HTMLSgTableElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "sg-content": HTMLSgContentElement;
+        "sg-table": HTMLSgTableElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface SgContent {
+        "dataUrl"?: string;
+        "info"?: boolean;
+        "ordering"?: boolean;
+        "paging"?: boolean;
+        "print"?: boolean;
+        "searching"?: boolean;
+        "theme"?: string;
+    }
+    interface SgTable {
+        "dataUrl"?: string;
+        "info"?: boolean;
+        "ordering"?: boolean;
+        "paging"?: boolean;
+        "print"?: boolean;
+        "searching"?: boolean;
+        "theme"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "sg-content": SgContent;
+        "sg-table": SgTable;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "sg-content": LocalJSX.SgContent & JSXBase.HTMLAttributes<HTMLSgContentElement>;
+            "sg-table": LocalJSX.SgTable & JSXBase.HTMLAttributes<HTMLSgTableElement>;
         }
     }
 }

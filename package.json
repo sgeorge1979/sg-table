@@ -1,7 +1,7 @@
 {
   "name": "sg-table",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "sg-table Component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -41,10 +41,15 @@
   "devDependencies": {
     "@stencil/core": "^4.7.0",
     "@types/jest": "^29.5.6",
+    "@types/jquery": "^3.5.32",
     "@types/node": "^16.18.11",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "puppeteer": "^21.9.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "datatables.net-dt": "^2.1.8",
+    "jquery": "^3.7.1"
+  }
 }

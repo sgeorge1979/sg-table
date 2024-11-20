@@ -1,115 +1,222 @@
-[![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)](https://stenciljs.com)
 
-# Stencil Component Starter
+![title](https://i.postimg.cc/DyvMDkyn/sg-table-title.png)
 
-This is a starter project for building a standalone Web Component using Stencil.
+# Sg-Table Component
 
-Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
+ This package is used to load table from api returning the JSON Array.
+ 
+ You just need to provide the `data-url` which returns JSON Array, It will load and display table with pagination, search, print options. You can also customize the options and themes based on your needs.
 
-# Stencil
-
-Stencil is a compiler for building fast web apps using Web Components.
-
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than runtime tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
-
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
 ## Getting Started
 
-To start building a new web component using Stencil, clone this repo to a new directory:
+Use the below command to add your package in your application
 
-```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+```
+npm i sg-table
+```
+you can consume it in your application as shown below:
+
+```
+<sg-table data-url='https://microsoftedge.github.io/Demos/json-dummy-data/128KB.json' ></sg-table>
+
 ```
 
-and run:
+## Options
 
-```bash
-npm install
-npm start
+| Property      | Attribute        |  Type      | Description                                                           |
+| ------------- | ---------------- | --------- | :-----------------------------------------------------------------:    |
+| `dataUrl`        | `data-url`           | `string`  | (Required) API url to load the data as an JSON Array                         |
+| `info`      | `info`| `boolean`  | (Optional) It gives the end user information about what is being shown in the table, Default: false    |
+| `ordering`  | `ordering`     | `boolean`  | (Optional) Enable or disable ordering of columns, Default: false   |
+| `paging`       | `paging`          | `boolean`  | (Optional) Enable and disable the pagination button and total entries dropdown. Total number of records shown in the page is 10 as default, Default: false    |
+| `print`    | `print`      | `boolean`  | (Optional) Enable and disable the print options. It will provide options to print the current page. Default: false    |
+| `searching`      | `searching`         | `boolean`  | (Optional) Enable or disable the search filter textbox. Default: false    |
+| `theme`     | `theme`        | `string` | (Optional) Used to change the background of the table header. You can use 3 themes . "red , green and blue". Default: White
+
+
+Example:
+
+
+![screenshot-1](https://i.postimg.cc/26JKMTTm/sg-table-output.png)
+
+
+## Usage
+
+Now we will see how to integrate this libiary in your applications.
+
+
+## Angular
+
+Step 1:  Add an import to `main.js`
+
+```
+import { defineCustomElements} from '../node_modules/sg-table/loader';
+```
+And somewhere near the bottom we'll call this function.
+
+```
+defineCustomElements();
+```
+Step 2: Add the dependency
+
+Add the following dependency in your `index.html` file.
+
+ ```
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/v/dt/dt-2.1.8/datatables.min.js"></script>
 ```
 
-To build the component for production, run:
+Step 3: Next, in `app.module.ts` add the `CUSTOM_ELEMENTS_SCHEMA`.
 
-```bash
-npm run build
+```
+import {CUSTOM_ELEMENTS_SCHEMA} from `@angular/core`;
+```
+and then
+
+```
+schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+]
+```
+Your `app.module.ts` should look like this:
+
+```
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+@NgModule({
+  declarations: [],
+  imports: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+
+export class AppModule { }
+```
+Please Note: schemas: [ CUSTOM_ELEMENTS_SCHEMA ] need to be added to each component where you are using custom HTML tags.
+
+Step 4: Now, in `app.component.html` you utilize your new custom element. 
+
+```
+<sg-table data-url='API_JSON_URL'></sg-table>
 ```
 
-To run the unit tests for the components, run:
+### React
+Now we'll add an import to `index.js`
 
-```bash
-npm test
+```
+import { defineCustomElements} from '../node_modules/sg-avatar/loader';
+```
+And somewhere near the bottom we'll call this function.
+
+```
+defineCustomElements();
 ```
 
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
+Install the following package to Copying assets from a component node module
 
-## Naming Components
-
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
-
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic-generated web components use the prefix `ion`.
-
-## Using this component
-
-There are two strategies we recommend for using web components built with Stencil.
-
-The first step for all two of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-You can read more about these different approaches in the [Stencil docs](https://stenciljs.com/docs/publishing).
-
-### Lazy Loading
-
-If your Stencil project is built with the [`dist`](https://stenciljs.com/docs/distribution) output target, you can import a small bootstrap script that registers all components and allows you to load individual component scripts lazily.
-
-For example, given your Stencil project namespace is called `my-design-system`, to use `my-component` on any website, inject this into your HTML:
-
-```html
-<script type="module" src="https://unpkg.com/my-design-system"></script>
-<!--
-To avoid unpkg.com redirects to the actual file, you can also directly import:
-https://unpkg.com/foobar-design-system@0.0.1/dist/foobar-design-system/foobar-design-system.esm.js
--->
-<my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+```
+npm install --save-dev copy-webpack-plugin
 ```
 
-This will only load the necessary scripts needed to render `<my-component />`. Once more components of this package are used, they will automatically be loaded lazily.
+Now, Update your webpack configuration (webpack.config.js):
 
-You can also import the script as part of your `node_modules` in your applications entry file:
+```
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-```tsx
-import 'foobar-design-system/dist/foobar-design-system/foobar-design-system.esm.js';
+module.exports = {
+  // ... other webpack config
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { 
+          from: node_modules/sg-avatar/dist/components/assets/', 
+          to: 'assets' 
+        }
+      ]
+    })
+  ]
+};
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-y6v26a?file=src%2Fmain.tsx).
-
-### Standalone
-
-If you are using a Stencil component library with `dist-custom-elements`, we recommend importing Stencil components individually in those files where they are needed.
-
-To export Stencil components as standalone components make sure you have the [`dist-custom-elements`](https://stenciljs.com/docs/custom-elements) output target defined in your `stencil.config.ts`.
-
-For example, given you'd like to use `<my-component />` as part of a React component, you can import the component directly via:
-
-```tsx
-import 'foobar-design-system/my-component';
-
+Next, in `app.js` you utilize your new custom element
+```
 function App() {
   return (
-    <>
-      <div>
-        <my-component
-          first="Stencil"
-          middle="'Don't call me a framework'"
-          last="JS"
-        ></my-component>
-      </div>
-    </>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+            <sg-avatar name="John Smith"></sg-avatar>
+      </header>
+    </div>
   );
 }
+```
+### Vue
+Add defineCustomElements to one of our main files. Specifically `main.js` for Vue.
+```
+import { defineCustomElements} from '../node_modules/sg-avatar/loader';
+```
+And somewhere near the bottom we'll call this function.
 
-export default App;
+```
+defineCustomElements();
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-b6zuds?file=src%2FApp.tsx).
+Now, to copy the images from the component `node_module` into your application use
+the following command
+
+```
+npm i vite-plugin-static-copy
+```
+
+Add viteStaticCopy plugin to `vite.config.js / vite.config.ts` and add the
+component assets location as shown below.
+
+```
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+
+export default {
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'node_modules/sg-avatar/dist/components/assets/*',
+          dest: 'assets'
+        }
+      ]
+    })
+  ]
+}
+```
+
+Next, in `App.Vue` you consume the custom element. 
+```
+<template>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <sg-avatar name="John Smith"></sg-avatar>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+}
+</script>
+```
+
+`Please Note:` If you are using multiple component then you can define the defineCustomElements as shown below:
+
+```
+import { defineCustomElements as defineCustomElements1} from '../node_modules/sg-copyright/loader';
+import { defineCustomElements as defineCustomElements2} from '../node_modules/sg-avatar/loader';
+import { defineCustomElements as defineCustomElements3} from '../node_modules/sg-table/loader';
+.
+.
+.
+defineCustomElements1();
+defineCustomElements2();
+defineCustomElements3();
+```

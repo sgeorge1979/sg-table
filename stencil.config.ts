@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'sg-table',
+  buildEs5: true,  // Added to create a ESM folder in dist
   outputTargets: [
     {
       type: 'dist',
@@ -23,4 +24,7 @@ export const config: Config = {
   testing: {
     browserHeadless: "new",
   },
+  bundles: [
+    { components: ['sg-table', 'sg-content' ] }
+  ]
 };
