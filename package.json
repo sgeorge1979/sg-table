@@ -1,7 +1,7 @@
 {
-  "name": "sg-table",
-  "version": "0.0.1",
-  "description": "sg-table Component",
+  "name": "sg-json-table",
+  "version": "0.0.3",
+  "description": "sg-json-table Component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",

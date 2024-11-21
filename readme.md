@@ -1,4 +1,4 @@
-
+#
 ![title](https://i.postimg.cc/DyvMDkyn/sg-table-title.png)
 
 # Sg-Table Component
@@ -13,7 +13,7 @@
 Use the below command to add your package in your application
 
 ```
-npm i sg-table
+npm i sg-json-table
 ```
 you can consume it in your application as shown below:
 
@@ -51,7 +51,7 @@ Now we will see how to integrate this libiary in your applications.
 Step 1:  Add an import to `main.js`
 
 ```
-import { defineCustomElements} from '../node_modules/sg-table/loader';
+import { defineCustomElements} from '../node_modules/sg-json-table/loader';
 ```
 And somewhere near the bottom we'll call this function.
 
@@ -100,7 +100,7 @@ Step 1:
 Now we'll add an import to `index.js`
 
 ```
-import { defineCustomElements} from '../node_modules/sg-table/loader';
+import { defineCustomElements} from '../node_modules/sg-json-table/loader';
 ```
 And somewhere near the bottom we'll call this function.
 
@@ -126,7 +126,7 @@ function App() {
 ### Vue
 Add defineCustomElements to one of our main files. Specifically `main.js` for Vue.
 ```
-import { defineCustomElements} from '../node_modules/sg-table/loader';
+import { defineCustomElements} from '../node_modules/sg-json-table/loader';
 ```
 And somewhere near the bottom we'll call this function.
 
@@ -159,7 +159,7 @@ export default {
 ```
 import { defineCustomElements as defineCustomElements1} from '../node_modules/sg-copyright/loader';
 import { defineCustomElements as defineCustomElements2} from '../node_modules/sg-avatar/loader';
-import { defineCustomElements as defineCustomElements3} from '../node_modules/sg-table/loader';
+import { defineCustomElements as defineCustomElements3} from '../node_modules/sg-json-table/loader';
 .
 .
 .
