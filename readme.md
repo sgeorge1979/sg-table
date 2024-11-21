@@ -58,16 +58,8 @@ And somewhere near the bottom we'll call this function.
 ```
 defineCustomElements();
 ```
-Step 2: Add the dependency
 
-Add the following dependency in your `index.html` file.
-
- ```
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://cdn.datatables.net/v/dt/dt-2.1.8/datatables.min.js"></script>
-```
-
-Step 3: Next, in `app.module.ts` add the `CUSTOM_ELEMENTS_SCHEMA`.
+Step 2: Next, in `app.module.ts` add the `CUSTOM_ELEMENTS_SCHEMA`.
 
 ```
 import {CUSTOM_ELEMENTS_SCHEMA} from `@angular/core`;
@@ -96,50 +88,26 @@ export class AppModule { }
 ```
 Please Note: schemas: [ CUSTOM_ELEMENTS_SCHEMA ] need to be added to each component where you are using custom HTML tags.
 
-Step 4: Now, in `app.component.html` you utilize your new custom element. 
+Step 3: Now, in `app.component.html` you utilize your new custom element. 
 
 ```
 <sg-table data-url='API_JSON_URL'></sg-table>
 ```
 
 ### React
+
+Step 1:
 Now we'll add an import to `index.js`
 
 ```
-import { defineCustomElements} from '../node_modules/sg-avatar/loader';
+import { defineCustomElements} from '../node_modules/sg-table/loader';
 ```
 And somewhere near the bottom we'll call this function.
 
 ```
 defineCustomElements();
 ```
-
-Install the following package to Copying assets from a component node module
-
-```
-npm install --save-dev copy-webpack-plugin
-```
-
-Now, Update your webpack configuration (webpack.config.js):
-
-```
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-
-module.exports = {
-  // ... other webpack config
-  plugins: [
-    new CopyWebpackPlugin({
-      patterns: [
-        { 
-          from: node_modules/sg-avatar/dist/components/assets/', 
-          to: 'assets' 
-        }
-      ]
-    })
-  ]
-};
-```
-
+Step 2:
 Next, in `app.js` you utilize your new custom element
 ```
 function App() {
@@ -147,7 +115,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-            <sg-avatar name="John Smith"></sg-avatar>
+        
+        <sg-table data-url='https://microsoftedge.github.io/Demos/json-dummy-data/128KB.json' info='true' paging="true"></sg-table>
+        
       </header>
     </div>
   );
@@ -156,7 +126,7 @@ function App() {
 ### Vue
 Add defineCustomElements to one of our main files. Specifically `main.js` for Vue.
 ```
-import { defineCustomElements} from '../node_modules/sg-avatar/loader';
+import { defineCustomElements} from '../node_modules/sg-table/loader';
 ```
 And somewhere near the bottom we'll call this function.
 
@@ -164,39 +134,16 @@ And somewhere near the bottom we'll call this function.
 defineCustomElements();
 ```
 
-Now, to copy the images from the component `node_module` into your application use
-the following command
 
-```
-npm i vite-plugin-static-copy
-```
-
-Add viteStaticCopy plugin to `vite.config.js / vite.config.ts` and add the
-component assets location as shown below.
-
-```
-import { viteStaticCopy } from 'vite-plugin-static-copy'
-
-export default {
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'node_modules/sg-avatar/dist/components/assets/*',
-          dest: 'assets'
-        }
-      ]
-    })
-  ]
-}
-```
 
 Next, in `App.Vue` you consume the custom element. 
 ```
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <sg-avatar name="John Smith"></sg-avatar>
+    
+      <sg-table data-url='https://microsoftedge.github.io/Demos/json-dummy-data/128KB.json' info='true' paging=true></sg-table>
+      
   </div>
 </template>
 

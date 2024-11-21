@@ -1,4 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
+import $ from 'jquery';
 import 'datatables.net';
 
 
