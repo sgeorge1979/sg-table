@@ -167,4 +167,4 @@ defineCustomElements1();
 defineCustomElements2();
 defineCustomElements3();
 ```
- [Click Here](https://codesandbox.io/p/devbox/green-leftpad-9f795x) for live demo.
+ [Click Here](https://codesandbox.io/p/devbox/green-leftpad-9f795x?embed=1&file=%2Fsrc%2Fapp%2Fapp.component.html%3A23%2C1&showConsole=true) for live demo.

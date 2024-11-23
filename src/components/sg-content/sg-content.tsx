@@ -70,7 +70,7 @@ export class SgContent {
       return (
           <thead>
             {this.print && (
-              <button onClick={this.downloadPdf} id="non-printable">Print</button> 
+              <button onClick={this.downloadPdf} id="non-printable">&#x1F5B6;&nbsp;Print</button> 
             )}
   
        
